@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/jiumozhi.css">
+    </style>
+</head>
+<body>
+    <div id="div_container">
+        <div id="div_fruit_list">
+            <table id="fruit_list">
+                <tr>
+                    <th class="w20">id</th>
+                    <th class="w20">name</th>
+                    <th class="w20">price</th>
+                    <th class="w20">num</th>
+                    <th class="w20">total</th>
+                    <th class="w20">remark</th>
+                    <th >operation</th>
+                </tr>
+                <tr th:unless="${#lists.isEmpty(session.fruitList)}" th:each="fruit:${session.fruitList}">
+                    <td th:text="${fruit.fruit_id}" class="h25"></td>
+                    <td class="h25"><a th:text="${fruit.fruit_name}" th:href="@{/edit(fid=${fruit.fruit_id})}"></a></td>
+                    <td th:text="${fruit.price}" class="h25"></td>
+                    <td th:text="${fruit.number}" class="h25"></td>
+                    <td th:text="${fruit.total}" class="h25"></td>
+                    <td th:text="${fruit.remark}" class="h25"></td>
+                    <td class="h25"><img src="image/Delete.jpg" class="del_img"/></td>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
